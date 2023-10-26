@@ -37,7 +37,7 @@ public abstract class Bike {
         if(Km < 0.0){
             throw new IllegalArgumentException("Value cannot be smaller than 0 !");
         }
-        this.km = Km;
+        this.km += Km;
     }
 
     //Check time
@@ -78,9 +78,9 @@ public abstract class Bike {
 
     //Total distance
     public String getTotalDistance(){
-        double total = 0;
-        total += this.km;
-        return "The bike " + this.id + "has travelled in total " + total + " kilometres.";
+        //double total = 0;
+        //total += this.km;
+        return "The bike " + this.id + " has travelled in total " + this.km + " kilometres.";
     }
 
 }

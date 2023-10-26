@@ -50,7 +50,7 @@ public class Ns {
             if(Bike instanceof Regular){
                 total = deposit + (BikeType.REGULAR.getCost()*Bike.getKm()) + (Bike.getHours()*2);
                 //Check order if it's right
-                response = "Renter: " + this.bikes.get(Bike).getName() + "has to pay: " + total;
+                response = "Renter: " + this.bikes.get(Bike).getName() + " has to pay: " + total + " \u20AC";
                 //Check if it removes and if it's not a double entry with the previous one
                 //Set rented to false
                 Bike.setRented(false);
@@ -59,7 +59,7 @@ public class Ns {
             if(Bike instanceof MountainBike){
                 total = deposit + (BikeType.MOUNTAINBIKE.getCost()*Bike.getKm()) + (Bike.getHours()*2);
                 //Check order if it's right
-                response = "Renter: " + this.bikes.get(Bike).getName() + "has to pay: " + total;
+                response = "Renter: " + this.bikes.get(Bike).getName() + " has to pay: " + total + " \u20AC";
                 //Check if it removes and if it's not a double entry with the previous one
                 //Set rented to false
                 Bike.setRented(false);
@@ -68,7 +68,7 @@ public class Ns {
             if(Bike instanceof Electric){
                 total = deposit + (BikeType.ELECTRIC.getCost()*Bike.getKm()) + (Bike.getHours()*2);
                 //Check order if it's right
-                response = "Renter: " + this.bikes.get(Bike).getName() + "has to pay: " + total;
+                response = "Renter: " + this.bikes.get(Bike).getName() + " has to pay: " + total + " \u20AC";
                 //Check if it removes and if it's not a double entry with the previous one
                 //Set rented to false
                 Bike.setRented(false);
