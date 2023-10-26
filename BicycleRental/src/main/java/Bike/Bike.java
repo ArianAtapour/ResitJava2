@@ -33,7 +33,7 @@ public abstract class Bike {
     }
 
     //Kilometres
-    private void setKm(double Km){
+    public void setKm(double Km){
         if(Km < 0.0){
             throw new IllegalArgumentException("Value cannot be smaller than 0 !");
         }
@@ -41,14 +41,14 @@ public abstract class Bike {
     }
 
     //Check time
-    private void setStartTime(int hour, int minute){
+    public void setStartTime(int hour, int minute){
         if(hour < 0 || minute < 0){
             throw new IllegalArgumentException("Hour or minutes cannot be lower than 0 !");
         }
         this.startTime = LocalTime.of(hour,minute);
     }
 
-    private void setEndTime(int hour, int minute){
+    public void setEndTime(int hour, int minute){
         if(hour < 0 || minute < 0){
             throw new IllegalArgumentException("Hour or minutes cannot be lower than 0 !");
         }

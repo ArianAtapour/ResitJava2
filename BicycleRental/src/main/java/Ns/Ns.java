@@ -25,7 +25,6 @@ public class Ns {
         return this.bikes;
     }
 
-    //Check if this does not create multiple values
     public void rentBike(Customer Customer, Bike Bike){
         if(this.bikes.containsKey(Bike)){
             this.bikes.put(Bike, Customer);
@@ -51,7 +50,7 @@ public class Ns {
             if(Bike instanceof Regular){
                 total = deposit + (BikeType.REGULAR.getCost()*Bike.getKm()) + (Bike.getHours()*2);
                 //Check order if it's right
-                response = "Renter: " + this.bikes.get(Bike) + "has to pay: " + total;
+                response = "Renter: " + this.bikes.get(Bike).getName() + "has to pay: " + total;
                 //Check if it removes and if it's not a double entry with the previous one
                 //Set rented to false
                 Bike.setRented(false);
@@ -60,7 +59,7 @@ public class Ns {
             if(Bike instanceof MountainBike){
                 total = deposit + (BikeType.MOUNTAINBIKE.getCost()*Bike.getKm()) + (Bike.getHours()*2);
                 //Check order if it's right
-                response = "Renter: " + this.bikes.get(Bike) + "has to pay: " + total;
+                response = "Renter: " + this.bikes.get(Bike).getName() + "has to pay: " + total;
                 //Check if it removes and if it's not a double entry with the previous one
                 //Set rented to false
                 Bike.setRented(false);
@@ -69,7 +68,7 @@ public class Ns {
             if(Bike instanceof Electric){
                 total = deposit + (BikeType.ELECTRIC.getCost()*Bike.getKm()) + (Bike.getHours()*2);
                 //Check order if it's right
-                response = "Renter: " + this.bikes.get(Bike) + "has to pay: " + total;
+                response = "Renter: " + this.bikes.get(Bike).getName() + "has to pay: " + total;
                 //Check if it removes and if it's not a double entry with the previous one
                 //Set rented to false
                 Bike.setRented(false);
@@ -86,7 +85,7 @@ public class Ns {
         int availableBikes = 0;
         for(Bike bike:this.bikes.keySet()){
             //By default it's true? Check this
-            if(bike.isRented()){
+            if(!bike.isRented()){
                 availableBikes++;
             }
         }

@@ -18,8 +18,25 @@
 
 package org.example;
 
+import Bike.Electric;
+import Bike.Regular;
+import Customer.Customer;
+import Ns.Ns;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Ns ns = new Ns();
+       Customer cust = new Customer("Arian Atapour");
+        Regular bR = new Regular(1);
+        Electric bE = new Electric(3);
+        ns.addBike(bR);
+        ns.addBike(bE);
+        ns.rentBike(cust, bE);
+        System.out.println("Before Renting:" + ns.getBikes() + " available " + ns.getAvailableBikes());
+        bE.setKm(10.5);
+        bE.setStartTime(10,0);
+        bE.setEndTime(11,0);
+        System.out.println(ns.returnBike(bE));
+        System.out.println("RETURNING: " + ns.getBikes() + " available " + ns.getAvailableBikes());
     }
 }
