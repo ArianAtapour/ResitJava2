@@ -39,9 +39,9 @@ public class Main {
         System.out.println("RETURNING: " + ns.getBikes() + " available " + ns.getAvailableBikes());
         System.out.println("CHANGING RENTER: " + bE.getTotalDistance());
         ns.rentBike(cust2, bE);
-        bE.setKm(2);
+        bE.setKm(10.5);
         bE.setStartTime(10,0);
-        bE.setEndTime(11,0);
+        bE.setEndTime(14,0);
         System.out.println(ns.returnBike(bE));
         System.out.println("NEW DISTANCE ELECT: " + bE.getTotalDistance());
     }
