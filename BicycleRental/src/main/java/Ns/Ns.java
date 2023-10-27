@@ -67,10 +67,7 @@ public class Ns {
             }
             if(Bike instanceof Electric){
                 total = deposit + (BikeType.ELECTRIC.getCost()*Bike.getKm()) + (Bike.getHours()*2);
-                //Check order if it's right
                 response = "Renter: " + this.bikes.get(Bike).getName() + " has to pay: " + total + " \u20AC";
-                //Check if it removes and if it's not a double entry with the previous one
-                //Set rented to false
                 Bike.setRented(false);
                 this.bikes.put(Bike, null);
             }
@@ -84,7 +81,6 @@ public class Ns {
     public String getAvailableBikes(){
         int availableBikes = 0;
         for(Bike bike:this.bikes.keySet()){
-            //By default it's true? Check this
             if(!bike.isRented()){
                 availableBikes++;
             }
