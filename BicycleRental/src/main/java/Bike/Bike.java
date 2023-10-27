@@ -1,15 +1,23 @@
+/**
+ * Bike abstract class. Extended from this class are the classes Regular, MountainBike, Electric.
+ * <p>
+ *      This class is used
+ * </p>
+ *
+ * @author Arian Atapour
+ * @version 1.0
+ */
 package Bike;
-
-//Dont forget about the ENUM thingy
 
 import java.time.Duration;
 import java.time.LocalTime;
 
 public abstract class Bike {
-    //id field
+    /** Id field used for the identification of the bike (number). */
     private int id;
-    //km field
+    /** Total kilometres field. */
     private double km;
+    private double totalKm;
     //rented field
     private boolean rented;
     //Time
@@ -38,6 +46,7 @@ public abstract class Bike {
             throw new IllegalArgumentException("Value cannot be smaller than 0 !");
         }
         this.km += Km;
+        this.totalKm += Km;
     }
 
     //Check time
@@ -67,6 +76,10 @@ public abstract class Bike {
         return this.km;
     }
 
+    public void resetKm(){
+        this.km = 0.0;
+    }
+
     //Rental status
     public void setRented(boolean Rented){
         this.rented = Rented;
@@ -80,7 +93,7 @@ public abstract class Bike {
     public String getTotalDistance(){
         //double total = 0;
         //total += this.km;
-        return "The bike " + this.id + " has travelled in total " + this.km + " kilometres.";
+        return "The bike " + this.id + " has travelled in total " + this.totalKm + " kilometres.";
     }
 
 }

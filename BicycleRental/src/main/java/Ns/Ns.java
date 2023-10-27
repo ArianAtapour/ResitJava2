@@ -9,6 +9,14 @@ import Customer.Customer;
 
 import java.util.HashMap;
 
+/**
+ * Bike rental class, (in this case Ns since the NS Group wants it for themselves).
+ * <p>
+ *      Initially, when bikes are added, the
+ * </p>
+ *
+ * @author [Your Name]
+ */
 public class Ns {
     private HashMap<Bike, Customer> bikes;
 
@@ -55,6 +63,7 @@ public class Ns {
                 //Set rented to false
                 Bike.setRented(false);
                 this.bikes.put(Bike, null);
+                Bike.resetKm();
             }
             if(Bike instanceof MountainBike){
                 total = deposit + (BikeType.MOUNTAINBIKE.getCost()*Bike.getKm()) + (Bike.getHours()*2);
@@ -64,12 +73,14 @@ public class Ns {
                 //Set rented to false
                 Bike.setRented(false);
                 this.bikes.put(Bike, null);
+                Bike.resetKm();
             }
             if(Bike instanceof Electric){
                 total = deposit + (BikeType.ELECTRIC.getCost()*Bike.getKm()) + (Bike.getHours()*2);
                 response = "Renter: " + this.bikes.get(Bike).getName() + " has to pay: " + total + " \u20AC";
                 Bike.setRented(false);
                 this.bikes.put(Bike, null);
+                Bike.resetKm();
             }
         }else{
             throw new IllegalArgumentException("Bike not found !");

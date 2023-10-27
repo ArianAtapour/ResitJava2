@@ -41,7 +41,7 @@ public class Main {
         ns.rentBike(cust2, bE);
         bE.setKm(2);
         bE.setStartTime(10,0);
-        bE.setEndTime(12,0);
+        bE.setEndTime(11,0);
         System.out.println(ns.returnBike(bE));
         System.out.println("NEW DISTANCE ELECT: " + bE.getTotalDistance());
     }
