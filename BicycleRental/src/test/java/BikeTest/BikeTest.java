@@ -41,6 +41,21 @@ public class BikeTest {
     }
 
     @Test
+    public void resetTime(){
+        bike.setStartTime(10,0);
+        bike.setEndTime(11,0);
+        bike.resetTime();
+        assertEquals(0 ,bike.getHours(), "Returned hours are not equal to 0 therefore time has not been reset !");
+    }
+
+    @Test
+    public void resetKm(){
+        bike.setKm(20);
+        bike.resetKm();
+        assertEquals(0.0, bike.getKm(), "Kilometres are not equal to 0.0 therefore kilometres are not getting reset !");
+    }
+
+    @Test
     public void durationHours() {
         bike.setStartTime(12, 0);
         bike.setEndTime(14, 0);

@@ -43,7 +43,7 @@ public class NsTest {
         bRegular.setEndTime(12, 0);
         bRegular.setKm(10);
         String result = ns.returnBike(bRegular);
-        assertTrue(result.contains("Renter: John Doe has to pay:"), "Output string for regular bike does not display correctly !");
+        assertTrue(result.contains("Renter: John Doe has to pay:") && result.contains("26"), "Output string for regular bike does not display correctly !");
         assertFalse(bRegular.isRented(), "Status of rented regular bike is not switched to false !");
     }
 
@@ -55,31 +55,19 @@ public class NsTest {
         bMountainBike.setEndTime(12, 0);
         bMountainBike.setKm(10);
         String result = ns.returnBike(bMountainBike);
-        assertTrue(result.contains("Renter: John Doe has to pay:"), "Output string for mountain bike does not display correctly !");
+        assertTrue(result.contains("Renter: John Doe has to pay:") && result.contains("26.5"), "Output string for mountain bike does not display correctly !");
         assertFalse(bMountainBike.isRented(), "Status of rented mountain bike is not switched to false !");
     }
 
     @Test
-    public void returnBElectricRenter() {
+    public void returnBElectric() {
         ns.addBike(bElectric);
         ns.rentBike(customer, bElectric);
         bElectric.setStartTime(10, 0);
-        bElectric.setEndTime(11, 0);
-        bElectric.setKm(5);
+        bElectric.setEndTime(12, 0);
+        bElectric.setKm(10);
         String result = ns.returnBike(bElectric);
-        assertTrue(result.contains("Renter: John Doe"), "Output string for electric bike (customer name) does not display correctly !");
-        assertFalse(bElectric.isRented(), "Status of rented mountain bike is not switched to false !");
-    }
-
-    @Test
-    public void returnBElectricRenterPrice() {
-        ns.addBike(bElectric);
-        ns.rentBike(customer, bElectric);
-        bElectric.setStartTime(10, 0);
-        bElectric.setEndTime(11, 0);
-        bElectric.setKm(5);
-        String result = ns.returnBike(bElectric);
-        assertTrue(result.contains("24.5"), "Output string for electric bike (total price) does not display correctly !");
+        assertTrue(result.contains("Renter: John Doe has to pay:") && result.contains("29"), "Output string for electric bike does not display correctly !");
         assertFalse(bElectric.isRented(), "Status of rented mountain bike is not switched to false !");
     }
 

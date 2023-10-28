@@ -150,8 +150,8 @@ public abstract class Bike {
      * Reset the time, after the bike has been returned.
      */
     public void resetTime() {
-        this.startTime = null;
-        this.endTime = null;
+        this.startTime = LocalTime.of(0,0);
+        this.endTime = LocalTime.of(0,0);
     }
 
     /**
