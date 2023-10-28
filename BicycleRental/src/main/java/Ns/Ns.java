@@ -1,3 +1,6 @@
+/**
+ * Package Ns that contains all the related classes to the Ns bike rental system.
+ */
 package Ns;
 
 import Bike.Bike;
@@ -29,7 +32,7 @@ public class Ns {
     /**
      * Constructor used to initialise the bikes HashMap
      */
-    public Ns(){
+    public Ns() {
         this.bikes = new HashMap<Bike, Customer>();
     }
 
@@ -38,7 +41,7 @@ public class Ns {
      *
      * @param Bike
      */
-    public void addBike(Bike Bike){
+    public void addBike(Bike Bike) {
         this.bikes.put(Bike, null);
     }
 
@@ -47,7 +50,7 @@ public class Ns {
      *
      * @return A map of bikes to customers.
      */
-    public HashMap<Bike, Customer> getBikes(){
+    public HashMap<Bike, Customer> getBikes() {
         return this.bikes;
     }
 
@@ -58,12 +61,12 @@ public class Ns {
      * @param Bike Bike which is to be rented.
      * @throws IllegalArgumentException If the bike that the customer wishes to rent is not found then throw the exception..
      */
-    public void rentBike(Customer Customer, Bike Bike){
-        if(this.bikes.containsKey(Bike)){
+    public void rentBike(Customer Customer, Bike Bike) {
+        if (this.bikes.containsKey(Bike)) {
             this.bikes.put(Bike, Customer);
             //Set rented boolean of Bike class to true
             Bike.setRented(true);
-        }else{
+        } else {
             throw new IllegalArgumentException("Bike not found !");
         }
     }
@@ -77,37 +80,37 @@ public class Ns {
      * @return A string output that informs the customer of the price he has to pay.
      * @throws IllegalArgumentException Throw exception if the bike is not found in the system.
      */
-    public String returnBike(Bike Bike){
+    public String returnBike(Bike Bike) {
         double total = 0;
         double deposit = 20;
         String response = null;
 
-        if(this.bikes.containsKey(Bike)){
-            if(Bike instanceof Regular){
-                total = deposit + (BikeType.REGULAR.getCost()*Bike.getKm()) + (Bike.getHours()*2);
+        if (this.bikes.containsKey(Bike)) {
+            if (Bike instanceof Regular) {
+                total = deposit + (BikeType.REGULAR.getCost() * Bike.getKm()) + (Bike.getHours() * 2);
                 response = "Renter: " + this.bikes.get(Bike).getName() + " has to pay: " + total + " \u20AC";
                 Bike.setRented(false);
                 this.bikes.put(Bike, null);
                 Bike.resetKm();
                 Bike.resetTime();
             }
-            if(Bike instanceof MountainBike){
-                total = deposit + (BikeType.MOUNTAINBIKE.getCost()*Bike.getKm()) + (Bike.getHours()*2);
+            if (Bike instanceof MountainBike) {
+                total = deposit + (BikeType.MOUNTAINBIKE.getCost() * Bike.getKm()) + (Bike.getHours() * 2);
                 response = "Renter: " + this.bikes.get(Bike).getName() + " has to pay: " + total + " \u20AC";
                 Bike.setRented(false);
                 this.bikes.put(Bike, null);
                 Bike.resetKm();
                 Bike.resetTime();
             }
-            if(Bike instanceof Electric){
-                total = deposit + (BikeType.ELECTRIC.getCost()*Bike.getKm()) + (Bike.getHours()*2);
+            if (Bike instanceof Electric) {
+                total = deposit + (BikeType.ELECTRIC.getCost() * Bike.getKm()) + (Bike.getHours() * 2);
                 response = "Renter: " + this.bikes.get(Bike).getName() + " has to pay: " + total + " \u20AC";
                 Bike.setRented(false);
                 this.bikes.put(Bike, null);
                 Bike.resetKm();
                 Bike.resetTime();
             }
-        }else{
+        } else {
             throw new IllegalArgumentException("Bike not found !");
         }
 
@@ -119,10 +122,10 @@ public class Ns {
      *
      * @return Outputs a string which displays the available number of bikes.
      */
-    public String getAvailableBikes(){
+    public String getAvailableBikes() {
         int availableBikes = 0;
-        for(Bike bike:this.bikes.keySet()){
-            if(!bike.isRented()){
+        for (Bike bike : this.bikes.keySet()) {
+            if (!bike.isRented()) {
                 availableBikes++;
             }
         }

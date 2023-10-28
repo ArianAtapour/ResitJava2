@@ -1,19 +1,22 @@
 /**
- * Represents a generic bike which can be used for rental purposes.
- * This abstract class provides basic attributes such as distance traveled,
- * rental status, and the total distance the bike has covered.
- * <p>
- *     This class is used for identification of the bike, kilometres, hours, and total kilometres tracked.
- * </p>
- *
- * @author Arian Atapour
- * @version 1.0
+ * Package that has classes associated to bikes.
  */
 package Bike;
 
 import java.time.Duration;
 import java.time.LocalTime;
 
+/**
+ * Represents a generic bike which can be used for rental purposes.
+ * This abstract class provides basic attributes such as distance traveled,
+ * rental status, and the total distance the bike has covered.
+ * <p>
+ * This class is used for identification of the bike, kilometres, hours, and total kilometres tracked.
+ * </p>
+ *
+ * @author Arian Atapour
+ * @version 1.0
+ */
 
 public abstract class Bike {
     /**
@@ -41,8 +44,12 @@ public abstract class Bike {
      */
     private LocalTime endTime;
 
-
-    public Bike(int Id){
+    /**
+     * Constructor used for setting the identification of the bike of type integer.
+     *
+     * @param Id
+     */
+    public Bike(int Id) {
         setId(Id);
     }
 
@@ -52,8 +59,8 @@ public abstract class Bike {
      * @param Id Number identifier for the bike.
      * @throws IllegalArgumentException If ID is negative throw exception.
      */
-    private void setId(int Id){
-        if(Id < 0){
+    private void setId(int Id) {
+        if (Id < 0) {
             throw new IllegalArgumentException("Value cannot be smaller than 0 !");
         }
         this.id = Id;
@@ -65,7 +72,7 @@ public abstract class Bike {
      *
      * @return Gets the ID of the bike.
      */
-    public int getId(){
+    public int getId() {
         return this.id;
     }
 
@@ -76,8 +83,8 @@ public abstract class Bike {
      * @param Km The distance(covered in kilometres).
      * @throws IllegalArgumentException Exception is thrown when the kilometres are negative.
      */
-    public void setKm(double Km){
-        if(Km < 0.0){
+    public void setKm(double Km) {
+        if (Km < 0.0) {
             throw new IllegalArgumentException("Value cannot be smaller than 0 !");
         }
         this.km += Km;
@@ -85,39 +92,47 @@ public abstract class Bike {
     }
 
     /**
+     * Get the distance made by the renter.
+     *
+     * @return Distance made in kilometers.
+     */
+    public double getKm() {
+        return this.km;
+    }
+
+    /**
+     * Reset the km to 0.0 (when the renter returns the bike in the Ns class).
+     */
+    public void resetKm() {
+        this.km = 0.0;
+    }
+
+    /**
      * Start time recorded during the rental.
      *
-     * @param hour Hour of the start time.
+     * @param hour   Hour of the start time.
      * @param minute Minute of the start time.
      * @throws IllegalArgumentException If the hours or minutes are negative, exception is thrown.
      */
-    public void setStartTime(int hour, int minute){
-        if(hour < 0 || minute < 0){
+    public void setStartTime(int hour, int minute) {
+        if (hour < 0 || minute < 0) {
             throw new IllegalArgumentException("Hour or minutes cannot be lower than 0 !");
         }
-        this.startTime = LocalTime.of(hour,minute);
+        this.startTime = LocalTime.of(hour, minute);
     }
 
     /**
      * End time recorded during the rental.
      *
-     * @param hour Hour of the end time.
+     * @param hour   Hour of the end time.
      * @param minute Minute of the end time.
      * @throws IllegalArgumentException If the hours or minutes are negative, exception is thrown.
      */
-    public void setEndTime(int hour, int minute){
-        if(hour < 0 || minute < 0){
+    public void setEndTime(int hour, int minute) {
+        if (hour < 0 || minute < 0) {
             throw new IllegalArgumentException("Hour or minutes cannot be lower than 0 !");
         }
-        this.endTime = LocalTime.of(hour,minute);
-    }
-
-    /*
-        Reset the time, after the bike has been returned.
-     */
-    public void resetTime(){
-        this.startTime = null;
-        this.endTime = null;
+        this.endTime = LocalTime.of(hour, minute);
     }
 
     /**
@@ -125,26 +140,18 @@ public abstract class Bike {
      *
      * @return The total of type long.
      */
-    public long getHours(){
-       Duration DurationHours = Duration.between(startTime, endTime);
-       long hours = DurationHours.toHours();
-       return hours;
+    public long getHours() {
+        Duration DurationHours = Duration.between(startTime, endTime);
+        long hours = DurationHours.toHours();
+        return hours;
     }
 
     /**
-     * Get the distance made by the renter.
-     *
-     * @return Distance made in kilometers.
+     * Reset the time, after the bike has been returned.
      */
-    public double getKm(){
-        return this.km;
-    }
-
-    /**
-     * Reset the km to 0.0 (when the renter returns the bike in the Ns class).
-     */
-    public void resetKm(){
-        this.km = 0.0;
+    public void resetTime() {
+        this.startTime = null;
+        this.endTime = null;
     }
 
     /**
@@ -152,7 +159,7 @@ public abstract class Bike {
      *
      * @param Rented Rental status to be set.
      */
-    public void setRented(boolean Rented){
+    public void setRented(boolean Rented) {
         this.rented = Rented;
     }
 
@@ -161,7 +168,7 @@ public abstract class Bike {
      *
      * @return True if bike is rented, false if not.
      */
-    public boolean isRented(){
+    public boolean isRented() {
         return this.rented;
     }
 
@@ -170,7 +177,7 @@ public abstract class Bike {
      *
      * @return Output of type string with the total distance the bike has made.
      */
-    public String getTotalDistance(){
+    public String getTotalDistance() {
         return "The bike " + this.id + " has travelled in total " + this.totalKm + " kilometres.";
     }
 

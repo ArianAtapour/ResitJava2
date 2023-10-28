@@ -11,12 +11,12 @@ public class CustomerTest {
 
     //Check if it gets the name
     @Test
-    void checkName(){
+    void checkName() {
         assertEquals("John Doe", customer.getName(), "Expected string was John Doe");
     }
 
     @Test
-    void exceptionEmptyName(){
+    void exceptionEmptyName() {
         assertThrows(IllegalArgumentException.class, () -> new Customer(""));
     }
 }

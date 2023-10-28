@@ -1,4 +1,5 @@
 package BikeTest;
+
 import Bike.Regular;
 import org.junit.jupiter.api.Test;
 
@@ -55,6 +56,8 @@ public class BikeTest {
     @Test
     public void totalDistance() {
         bike.setKm(20.5);
-        assertEquals(20.5, bike.getTotalDistance(), "Total distance is not equal to 20.5 !");
+        bike.setKm(20);
+        String result = bike.getTotalDistance();
+        assertTrue(result.contains("40.5"), "Total distance is not equal to 20.5 !");
     }
 }
