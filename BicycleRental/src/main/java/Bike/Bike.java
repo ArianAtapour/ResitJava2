@@ -96,7 +96,7 @@ public abstract class Bike {
      *
      * @return Distance made in kilometers.
      */
-    public double getKm() {
+    public double gpsTracker() {
         return this.km;
     }
 

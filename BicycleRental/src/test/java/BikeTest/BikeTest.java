@@ -27,7 +27,7 @@ public class BikeTest {
     @Test
     public void getKm() {
         bike.setKm(8.5);
-        assertEquals(8.5, bike.getKm(), "Expected kilometres were 8.5 !");
+        assertEquals(8.5, bike.gpsTracker(), "Expected kilometres were 8.5 !");
     }
 
     @Test
@@ -52,7 +52,7 @@ public class BikeTest {
     public void resetKm(){
         bike.setKm(20);
         bike.resetKm();
-        assertEquals(0.0, bike.getKm(), "Kilometres are not equal to 0.0 therefore kilometres are not getting reset !");
+        assertEquals(0.0, bike.gpsTracker(), "Kilometres are not equal to 0.0 therefore kilometres are not getting reset !");
     }
 
     @Test

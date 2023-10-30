@@ -87,7 +87,7 @@ public class Ns {
 
         if (this.bikes.containsKey(Bike)) {
             if (Bike instanceof Regular) {
-                total = deposit + (BikeType.REGULAR.getCost() * Bike.getKm()) + (Bike.getHours() * 2);
+                total = deposit + (BikeType.REGULAR.getCost() * Bike.gpsTracker()) + (Bike.getHours() * 2);
                 response = "Renter: " + this.bikes.get(Bike).getName() + " has to pay: " + total + " \u20AC";
                 Bike.setRented(false);
                 this.bikes.put(Bike, null);
@@ -95,7 +95,7 @@ public class Ns {
                 Bike.resetTime();
             }
             if (Bike instanceof MountainBike) {
-                total = deposit + (BikeType.MOUNTAINBIKE.getCost() * Bike.getKm()) + (Bike.getHours() * 2);
+                total = deposit + (BikeType.MOUNTAINBIKE.getCost() * Bike.gpsTracker()) + (Bike.getHours() * 2);
                 response = "Renter: " + this.bikes.get(Bike).getName() + " has to pay: " + total + " \u20AC";
                 Bike.setRented(false);
                 this.bikes.put(Bike, null);
@@ -103,7 +103,7 @@ public class Ns {
                 Bike.resetTime();
             }
             if (Bike instanceof Electric) {
-                total = deposit + (BikeType.ELECTRIC.getCost() * Bike.getKm()) + (Bike.getHours() * 2);
+                total = deposit + (BikeType.ELECTRIC.getCost() * Bike.gpsTracker()) + (Bike.getHours() * 2);
                 response = "Renter: " + this.bikes.get(Bike).getName() + " has to pay: " + total + " \u20AC";
                 Bike.setRented(false);
                 this.bikes.put(Bike, null);
