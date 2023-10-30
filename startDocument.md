@@ -139,7 +139,7 @@ Checking if the kilometres given are the same in the output.
 
 | Step | Input | Action    | Expected output |
 |------|-------|-----------|-----------------|
-| 1    | `8.5` | `getKm()` | 8.5             |
+| 1    | `8.5` | `gpsTracker()` | 8.5             |
 
 #### #5 Negative Start Hour
 
@@ -176,7 +176,7 @@ Checking if resetting the kilometres does not affect getting the kilometres or t
 |------|-------|-------------|-----------------|
 | 1    | `20`  | `setKm(20)` |                 |
 | 2    |       | `resetKm()` |                 |
-| 3    |       | `getKm()`   | 0.0             |
+| 3    |       | `gpsTracker()`   | 0.0             |
 
 #### #9 Getting the duration in hours
 
